@@ -1,0 +1,18 @@
+doctype html
+html(lang="ja")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title 日本酒検索
+  body 
+    h1 日本酒検索
+    h3 銘柄ごとのフレーバーを華やか、芳醇、重厚、穏やか、軽快、ドライの6つの観点で数値化した点数を教えてくれます。
+    a(href="https://sakenowa.com") さけのわデータ を利用しています
+
+
+    p 検索したいキーワードを入力してください
+    form(action="/", method="post")
+      input(type="search" name="content", placeholder="銘柄を入力")
+      input(type="submit" name="submit" value="検索")
+
