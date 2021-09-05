@@ -5,9 +5,7 @@
   "license": "MIT",
   "dependencies": {
     "axios": "^0.21.3",
-    "cron": "1.8.2",
     "http": "^0.0.1-security",
-    "pug": "^3.0.2",
-    "twitter-lite": "0.14.0"
+    "pug": "^3.0.2"
   }
 }
