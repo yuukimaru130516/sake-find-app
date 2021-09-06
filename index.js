@@ -3,13 +3,22 @@
 const axios = require('axios');
 const http = require('http');
 const pug = require('pug');
+const fs = require('fs');
 
+// end point
+const url = "https://muro.sakenowa.com/sakenowa-data/api"
 
 const server = http.createServer((req, res) => {
   switch(req.method) {
     case 'GET':
-      res.writeHead(200, {'Content-Type': 'text/html; charset=utf-8'});
-      res.end(pug.renderFile('./views/top.pug'));
+      if(req.url === "/favicon.ico") {
+        res.writeHead(200, {'Content-Type': 'image.vnd.microsoft.icon'});
+        const favicon = fs.readFileSync('./favicon.ico');
+        res.end(favicon);
+      } else {
+        res.writeHead(200, {'Content-Type': 'text/html; charset=utf-8'});
+        res.end(pug.renderFile('./views/top.pug'));
+      }
       break;
     
     case 'POST':
@@ -35,26 +44,7 @@ const server = http.createServer((req, res) => {
   console.error(`Client Error ${err}`);
 }) 
 
-// end point
-const url = "https://muro.sakenowa.com/sakenowa-data/api"
-
-// コンソールで入力した銘柄が存在するか検索(同期処理)
-function readBrandInput(question) {
-  const readline = require('readline').createInterface({
-    input: process.stdin,
-    output: process.stdout
-  });
-
-  return new Promise((resolve) => {
-    readline.question(question, (ans) => {
-      resolve(ans);
-      readline.close();
-    });
-  });
-}
-
 function findBrand(findContent) {
-  //const brand = await readBrandInput('検索したい銘柄名を入力してください: ');
   return new Promise((resolve) => {
     axios.get(url + '/brands').then(res => {
       const found = res.data.brands.filter(element => element.name === findContent)
@@ -95,7 +85,7 @@ function getTagName(find, result) {
   return res;
 }
 
-const port = 8000;
+const port = process.env.PORT || 8000;
 server.listen(port, () => {
   console.info(`Listening on ${port}`);
 })

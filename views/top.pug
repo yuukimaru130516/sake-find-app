@@ -4,15 +4,29 @@ html(lang="ja")
     meta(charset="UTF-8")
     meta(http-equiv="X-UA-Compatible", content="IE=edge")
     meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    .
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1&display=swap" rel="stylesheet">
+    style(type="text/css").
+      .theme { font-family: 'Shippori Mincho B1', serif; }
     title 日本酒検索
-  body 
-    h1 日本酒検索
-    h3 銘柄ごとのフレーバーを華やか、芳醇、重厚、穏やか、軽快、ドライの6つの観点で数値化した点数を教えてくれます。
-    a(href="https://sakenowa.com") さけのわデータ を利用しています
 
+  body.container.theme.bg-light.text-dark 
+    h1.mt-2 日本酒検索
+    p.my-3 銘柄ごとのフレーバーを華やか、芳醇、重厚、穏やか、軽快、ドライの6つの観点で数値化した点数を教えてくれます。
+    a(href="https://sakenowa.com") さけのわデータ を利用しています <br><br>
 
     p 検索したいキーワードを入力してください
     form(action="/", method="post")
       input(type="search" name="content", placeholder="銘柄を入力")
       input(type="submit" name="submit" value="検索")
+  footer.page-footer.font-small 
+    .footer-copyright.text-center.py-3.fixed-bottom ©2021 Copyright: 
+        a(href="") yuuki nakayama
 
+  .
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
