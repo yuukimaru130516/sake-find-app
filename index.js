@@ -29,8 +29,7 @@ const server = http.createServer((req, res) => {
           body = Buffer.concat(body).toString();
           const params = new URLSearchParams(body);
           const findContent = params.get('content');
-          findFlavor(findContent, req, res);
-        
+          findFlavor(findContent, req, res); 
       });
       break;
   }
